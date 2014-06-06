@@ -492,6 +492,8 @@ To generate a `pmd_ruleset.xml` use the online [pmd ruleset creator](http://open
 
 > Quick FlexPMD 1.3 download link: https://dl.dropboxusercontent.com/u/75480155/flexpmd.zip
 
+**Example 16 - analyze source code with PMD and CPD**
+
 ```
 ...
 <property name="FLEXPMD.dir" value="~/sdks/flexpmd"/>
@@ -533,7 +535,6 @@ To generate a `pmd_ruleset.xml` use the online [pmd ruleset creator](http://open
         outputDirectory="${DEPLOY.dir}"
         ruleSet="${basedir}/pmd_ruleset.xml"/>
 </target>
-
 <target name="flexCpd">
     <flexCpd
         minimumTokenCount="50"
