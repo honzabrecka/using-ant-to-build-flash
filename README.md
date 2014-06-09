@@ -548,6 +548,38 @@ To generate a `pmd_ruleset.xml` use the online [pmd ruleset creator](http://open
 ...
 ```
 
+Mastering
+---------
+
+Do not repeat yourself, use `${ant.project.name}` as can be seen in *Example 15 - generating ASDoc*.
+
+When you run your FlexUnit tests on CI machine and some test fails, your build ends. But it ends before the report generation, so your statistics can't be updated and you don't know which test fails. Therefore flexunit task offers `failureproperty`:
+
+**Example 17 - do not halt FlexUnit tests on failure**
+
+```
+<target name="test">
+	<mxmlc file="${basedir}/src/tests.mxml" output="${TESTS.dir}/tests.swf" failonerror="true" verbose-stacktraces="true">
+		<source-path path-element="${basedir}/src"/>
+		<library-path dir="${basedir}/libs" includes="*" append="true"/>
+	</mxmlc>
+	<flexunit
+		swf="${TESTS.dir}/tests.swf"
+		toDir="${TESTS.dir}"
+		haltonfailure="false" failureproperty="flexunit.failure"
+		verbose="true"
+		localTrusted="true"
+		command="${FLEX_HOME}/runtimes/player/11.4/win/FlashPlayerDebugger.exe"/>
+	<junitreport todir="${TESTS.dir}">
+		<fileset dir="${TESTS.dir}">
+			<include name="TEST-*.xml"/>
+		</fileset>
+		<report format="frames" todir="${TESTS.dir}/html"/>
+	</junitreport>
+	<fail if="flexunit.failure" message="Unit test(s) failed. See reports!"/>
+</target>
+```
+
 License
 -------
 
