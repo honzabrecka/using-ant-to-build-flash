@@ -462,26 +462,25 @@ Generating ASDoc
 
 **Example 15 - generating ASDoc**
 
-```
-$ FLEX_HOME/bin/asdoc \
--source-path \
-   "Project1/src" \
-   "Project2/src" \
--doc-sources \
-   "Project1/src" \
-   "Project2/src" \
--output "asdoc-output" \
--external-library-path+="Project1/libs" \
--external-library-path+="Project2/libs" \
--main-title "my API documentation" \
--window-title "my API documentation" \
--left-frameset-width 340 \
--lenient \
--warnings=false \
--benchmark=true
-```
+Generate ASDoc to a temp dir and update the .swc file with it.
 
-> Best practice is save this command to asdoc.sh file and then type just `$ ./asdoc.sh`.
+```
+<target name="asdoc">
+	<tempfile property="temp.dir" destDir="${java.io.tmpdir}" prefix="${ant.project.name}-doc-xml-" />
+	<asdoc output="${temp.dir}" lenient="true" failonerror="true" keep-xml="true" skip-xsl="true" fork="true">
+		<compiler.source-path path-element="${basedir}/src" />
+		<doc-sources path-element="${basedir}/src" />
+	</asdoc>
+	<zip destfile="${DEPLOY.dir}/${ant.project.name}.swc" update="true">
+		<zipfileset dir="${temp.dir}/tempdita" prefix="docs">
+			<include name="*.*"/>
+			<exclude name="ASDoc_Config.xml" />
+			<exclude name="overviews.xml" />
+		</zipfileset>
+	</zip>
+	<delete dir="${temp.dir}" failonerror="false" includeEmptyDirs="true" />
+</target>
+```
 
 FlexPMD/CPD
 -----------
