@@ -27,7 +27,7 @@ To check everything works as expected, just type `$ ant` to your terminal.
 
 If you are using Adobe Flash Builder 4.7, you can find the AIR SDK at `/Applications/Adobe Flash Builder 4.7/eclipse/plugins/com.adobe.flash.compiler_4.7.0.349722` (MacOS) or `C:\Program Files (x86)\Adobe\Adobe Flash Builder 4.7\eclipse\plugins\com.adobe.flash.compiler_4.7.0.349722` (Windows).
 
-Otherwise, you can download it from http://www.adobe.com/devnet/air/air-sdk-download.html. Just extract it into the, let's say, `~/sdks/air` directory.
+Otherwise, you can download it from http://www.adobe.com/devnet/air/air-sdk-download.html. Just extract it into the, let's say `~/sdks/air` directory.
 
 **4. FLEX SDK**
 
@@ -35,7 +35,7 @@ Otherwise, you can download it from http://www.adobe.com/devnet/air/air-sdk-down
 
 If you are using Adobe Flash Builder 4.7, you can find the Flex SDKs directory at `<FlashBuilder_installation_location>/sdks`.
 
-Otherwise, you have to download and install it manually. I personally prefer release by Adobe, which can be downloaded from http://www.adobe.com/devnet/flex/flex-sdk-download.html. Just extract it into the, let's say, `~/sdks/flex` directory. But you may want to use the latest version of the Flex SDK, which is currently developed by Apache. If so, you can install it using their http://flex.apache.org/installer.html.
+Otherwise, you have to download and install it manually. I personally prefer release by Adobe, which can be downloaded from http://www.adobe.com/devnet/flex/flex-sdk-download.html. Just extract it into the, let's say `~/sdks/flex` directory. But you may want to use the latest version of the Flex SDK, which is currently developed by Apache. If so, you can install it using their http://flex.apache.org/installer.html.
 
 You should set the `FLEX_HOME` environment variable and add it to `PATH`.
 
@@ -440,6 +440,7 @@ Packing AIR project
 **Example 14 - packing .air application**
 
 ```
+...
 <target name="pack">
 	<copy file="${basedir}/src/swf2png-app.xml" todir="${DEPLOY.dir}" overwrite="true"/>
 	<replace file="${DEPLOY.dir}/swf2png-app.xml" token="[This value will be overwritten by Flash Builder in the output app.xml]" value="swf2png.swf"/>
@@ -453,6 +454,7 @@ Packing AIR project
 		<arg line="-C ${DEPLOY.dir} swf2png.swf"/>
 	</exec>
 </target>
+...
 ```
 
 Generating ASDoc
@@ -463,6 +465,7 @@ Generating ASDoc
 Generate ASDoc to a temp dir and update the .swc file with it.
 
 ```
+...
 <target name="asdoc">
 	<tempfile property="temp.dir" destDir="${java.io.tmpdir}" prefix="${ant.project.name}-doc-xml-" />
 	<asdoc output="${temp.dir}" lenient="true" failonerror="true" keep-xml="true" skip-xsl="true" fork="true">
@@ -478,6 +481,7 @@ Generate ASDoc to a temp dir and update the .swc file with it.
 	</zip>
 	<delete dir="${temp.dir}" failonerror="false" includeEmptyDirs="true" />
 </target>
+...
 ```
 
 FlexPMD/CPD
@@ -556,6 +560,7 @@ When you run your FlexUnit tests on CI machine and some test fails, your build e
 **Example 17 - do not halt FlexUnit tests on failure**
 
 ```
+...
 <target name="test">
 	<mxmlc file="${basedir}/src/tests.mxml" output="${TESTS.dir}/tests.swf" failonerror="true" verbose-stacktraces="true">
 		<source-path path-element="${basedir}/src"/>
@@ -576,6 +581,7 @@ When you run your FlexUnit tests on CI machine and some test fails, your build e
 	</junitreport>
 	<fail if="flexunit.failure" message="Unit test(s) failed. See reports!"/>
 </target>
+...
 ```
 
 License
