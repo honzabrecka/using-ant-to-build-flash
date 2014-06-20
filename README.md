@@ -13,13 +13,11 @@ Introduction
 
 **1. Java**
 
-If you don'have JRE (Java Runtime Environment) already installed, you have to install it first.
-
-To check everything works as expected, just type `$ java` to your terminal.
+At first of all, you have to install [JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) (Java Runtime Environment). To check everything works as expected, just type `$ java` to your terminal.
 
 **2. ANT**
 
-Then you have to download ANT from http://ant.apache.org/bindownload.cgi. Just extract the downloaded .zip file into the, let's say, `~/sdks/ant` directory, set `ANT_HOME` environment variable to this location and add `ANT_HOME` to `PATH`:
+Then you have to download ANT from http://ant.apache.org/bindownload.cgi. Just extract the downloaded .zip file into the, let's say `~/sdks/ant` directory, set `ANT_HOME` environment variable to this location and add `ANT_HOME` to `PATH`:
 
 `${ANT_HOME}/bin` (MacOS) or `%ANT_HOME%/bin` (Windows)
 
