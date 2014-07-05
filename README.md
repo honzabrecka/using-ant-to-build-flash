@@ -362,7 +362,6 @@ Running FlexUnit tests in FlashPlayer
 			</fileset>
 			<report format="frames" todir="${TESTS.dir}/html"/>
 		</junitreport>
-		<fail if="flexunit.failure" message="FlexUnit test(s) failed."/>
 	</target>
 	<target name="compile">
 		<mxmlc file="${basedir}/src/Main.mxml" output="${DEPLOY.dir}/output.swf" failonerror="true" maxmemory="1024m">
@@ -423,7 +422,6 @@ Running FlexUnit tests in ADL
 			</fileset>
 			<report format="frames" todir="${TESTS.dir}/html"/>
 		</junitreport>
-		<fail if="flexunit.failure" message="FlexUnit test(s) failed."/>
 	</target>
 	<target name="compile">
 		<mxmlc file="${basedir}/src/Main.as" output="${DEPLOY.dir>/output.swf" configname="air" failonerror="true">
