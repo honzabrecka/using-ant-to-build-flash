@@ -23,6 +23,8 @@ Then you have to download ANT from http://ant.apache.org/bindownload.cgi. Just e
 
 To check everything works as expected, just type `$ ant` to your terminal.
 
+> If you are using MacOS you can install ANT with [brew](http://brew.sh/): `$ brew install ant`
+
 #### AIR SDK
 
 If you are using Adobe Flash Builder 4.7, you can find the AIR SDK at `/Applications/Adobe Flash Builder 4.7/eclipse/plugins/com.adobe.flash.compiler_4.7.0.349722` (MacOS) or `C:\Program Files (x86)\Adobe\Adobe Flash Builder 4.7\eclipse\plugins\com.adobe.flash.compiler_4.7.0.349722` (Windows).
