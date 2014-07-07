@@ -195,9 +195,31 @@ Now we are using custom metadata and we want to keep them in compiled applicatio
 
 #### Example 5 - changing target player version
 
-> Do not forget to check if `FLEX_HOME/frameworks/libs/player/<version>/playerglobal.swc` file exists. If doesn't, you can find it at http://helpx.adobe.com/flash-player/kb/archived-flash-player-versions.html.
-
+```
 <compc ... target-player="11.4" swf-version="17"/>
+```
+
+Do not forget to check if `FLEX_HOME/frameworks/libs/player/<target-version>/playerglobal.swc` and `${FLEX_HOME}/runtimes/player/<target-version>/.../FlashPlayerDebugger` exist. You can find all released versions of playerglobal.swc and Flash Player Debuggers at http://helpx.adobe.com/flash-player/kb/archived-flash-player-versions.html.
+
+swf-version | target-player
+----------- | -------------
+9           | 9
+10          | 10.0, 10.1
+11          | 10.2
+12          | 10.3
+13          | 11.0
+14          | 11.1
+15          | 11.2
+16          | 11.3
+17          | 11.4
+18          | 11.5
+19          | 11.6
+20          | 11.7
+21          | 11.8
+22          | 11.9
+23          | 12.0
+24          | 13.0
+25          | 14.0
 
 #### Example 6 - dump details about compilation
 
