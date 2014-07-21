@@ -33,8 +33,6 @@ Otherwise, you can download it from http://www.adobe.com/devnet/air/air-sdk-down
 
 #### FLEX SDK
 
-> If you write your project in pure ActionScript (which means without using Flex Framework), you can skip this step.
-
 If you are using Adobe Flash Builder 4.7, you can find the Flex SDKs directory at `<FlashBuilder_installation_location>/sdks`.
 
 Otherwise, you have to download and install it manually. I personally prefer release by Adobe, which can be downloaded from http://www.adobe.com/devnet/flex/flex-sdk-download.html. Just extract it into the, let's say `~/sdks/flex` directory. But you may want to use the latest version of the Flex SDK, which is currently developed by Apache. If so, you can install it using their http://flex.apache.org/installer.html.
