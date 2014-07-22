@@ -338,7 +338,7 @@ The most simple ANT build.xml file, which describes how to build an `bin/output.
 Running FlexUnit tests in FlashPlayer
 --------------------------------------
 
-> Quick FlexUnit 4.1 download link: https://dl.dropboxusercontent.com/u/75480155/flexunit.zip
+> Quick download links: [Apache FlexUnit 4.2](http://www.apache.org/dyn/closer.cgi/flex/flexunit/4.2.0/binaries/apache-flex-flexunit-4.2.0-4.12.0-bin.zip), [FlexUnit 4.1](https://dl.dropboxusercontent.com/u/75480155/flexunit.zip)
 
 #### Example 12 - running FlexUnit tests in FlashPlayer
 
@@ -513,7 +513,7 @@ FlexPMD/CPD
 
 To generate a `pmd_ruleset.xml` use the online [pmd ruleset creator](http://opensource.adobe.com/svn/opensource/flexpmd/bin/flex-pmd-ruleset-creator.html).
 
-> Quick FlexPMD 1.3 download link: https://dl.dropboxusercontent.com/u/75480155/flexpmd.zip
+> Quick download link: [Adobe FlexPMD 1.3](https://dl.dropboxusercontent.com/u/75480155/flexpmd.zip)
 
 #### Example 16 - analyze source code with PMD and CPD
 
