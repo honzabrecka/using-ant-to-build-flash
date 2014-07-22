@@ -575,11 +575,13 @@ To generate a `pmd_ruleset.xml` use the online [pmd ruleset creator](http://open
 Mastering
 ---------
 
-Do not repeat yourself, use `${ant.project.name}` as can be seen in *Example 15 - generating ASDoc*.
+### DRY
 
-When you run your FlexUnit tests on CI machine and some test fails, your build ends. But it ends before the report generation, so your statistics can't be updated and you don't know which test fails. Therefore flexunit task offers `failureproperty`:
+Do not repeat yourself, use `${ant.project.name}` as can be seen in [Example 15 - generating ASDoc](#example-15---generating-asdoc).
 
 #### Example 17 - do not halt FlexUnit tests on failure
+
+When you run your FlexUnit tests on CI machine and any test fails, your build ends. But it ends before the report generation, so your statistics can't be updated and you don't know which test fails and why. Therefore flexunit task offers `failureproperty`:
 
 ```
 ...
