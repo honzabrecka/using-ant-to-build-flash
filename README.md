@@ -218,6 +218,7 @@ swf-version | target-player
 23          | 12.0
 24          | 13.0
 25          | 14.0
+26          | 15.0
 
 #### Example 6 - dump details about compilation
 
