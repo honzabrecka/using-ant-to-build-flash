@@ -97,7 +97,7 @@ Building SWC
 
 The most simple ANT build.xml file, which describes how to build an `bin/output.swc` file:
 
-```
+```xml
 <?xml version="1.0"?>
 <project name="swc example" default="main" basedir=".">
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant"/>
@@ -120,7 +120,7 @@ The most simple ANT build.xml file, which describes how to build an `bin/output.
 
 Let's say, that the project contains a `libs` directory with linked .swc libraries. We have to tell to compc where to find them:
 
-```
+```xml
 <?xml version="1.0"?>
 <project name="swc example" default="main" basedir=".">
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant"/>
@@ -144,7 +144,7 @@ Let's say, that the project contains a `libs` directory with linked .swc librari
 
 Or if we want to specify an .swc file located anywhere:
 
-```
+```xml
 <?xml version="1.0"?>
 <project name="swc example" default="main" basedir=".">
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant"/>
@@ -168,7 +168,7 @@ Or if we want to specify an .swc file located anywhere:
 
 Now we are using custom metadata and we want to keep them in compiled application (the default behavior is that they are removed them to keep the application/library as small as possible):
 
-```
+```xml
 <?xml version="1.0"?>
 <project name="swc example" default="main" basedir=".">
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant"/>
@@ -193,7 +193,7 @@ Now we are using custom metadata and we want to keep them in compiled applicatio
 
 #### Example 5 - changing target player version
 
-```
+```xml
 <compc ... target-player="11.4" swf-version="17"/>
 ```
 
@@ -224,7 +224,7 @@ swf-version | target-player
 
 Let's take a look at the compc options. If you are intrested in more detailed informations, you can dump out config, size report and link report:
 
-```
+```xml
 <compc ... dump-config="${DEPLOY.dir}/config.xml" size-report="${DEPLOY.dir}/sizereport.xml" link-report="${DEPLOY.dir}/linkreport.xml">
 ```
 
@@ -232,7 +232,7 @@ Let's take a look at the compc options. If you are intrested in more detailed in
 
 To disable warnings:
 
-```
+```xml
 <compc ... warnings="false">
 ```
 
@@ -240,7 +240,7 @@ To disable warnings:
 
 If you are building a lot of applications/libraries, you can exhaust the memory. Very useful is set fork option to true, which should solve, especially with maxmemory set to at least one gig, everything:
 
-```
+```xml
 <compc ... fork="true">
 ```
 
@@ -251,7 +251,7 @@ Building SWF from Flex project
 
 The most simple ANT build.xml file, which describes how to build a `bin/output.swf` file:
 
-```
+```xml
 <?xml version="1.0"?>
 <project name="swf example" default="main" basedir=".">
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant"/>
@@ -278,7 +278,7 @@ Building SWF from pure ActionScript project
 
 The most simple ANT build.xml file, which describes how to build an `bin/output.swf` file:
 
-```
+```xml
 <?xml version="1.0"?>
 <project name="swf example" default="main" basedir=".">
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant"/>
@@ -311,7 +311,7 @@ Building AIR project
 
 The most simple ANT build.xml file, which describes how to build an `bin/output.swf` file:
 
-```
+```xml
 <?xml version="1.0"?>
 <project name="swf example" default="main" basedir=".">
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant"/>
@@ -345,7 +345,7 @@ Running FlexUnit tests in FlashPlayer
 
 > Do not forget to add `CIListener` to your `FlexUnitCore` instance.
 
-```
+```xml
 <?xml version="1.0"?>
 <project name="swf example" default="main" basedir=".">
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant"/>
@@ -399,7 +399,7 @@ Running FlexUnit tests in ADL
 
 > Do not forget to add `AIRCIListener` to your `FlexUnitCore` instance.
 
-```
+```xml
 <?xml version="1.0"?>
 <project name="swf example" default="main" basedir=".">
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant"/>
@@ -462,7 +462,7 @@ Packing AIR project
 
 #### Example 14 - packing .air application
 
-```
+```xml
 ...
 <target name="pack">
 	<copy file="${basedir}/src/swf2png-app.xml" todir="${DEPLOY.dir}" overwrite="true"/>
@@ -487,7 +487,7 @@ Generating ASDoc
 
 Generate ASDoc to a temp dir and update the .swc file with it.
 
-```
+```xml
 ...
 <target name="asdoc">
 	<tempfile property="temp.dir" destDir="${java.io.tmpdir}" prefix="${ant.project.name}-doc-xml-" />
@@ -518,7 +518,7 @@ To generate a `pmd_ruleset.xml` use the online [pmd ruleset creator](http://open
 
 #### Example 16 - analyze source code with PMD and CPD
 
-```
+```xml
 ...
 <property name="FLEXPMD.dir" value="~/sdks/flexpmd"/>
 <property name="FLEXPMD.version" value="1.3"/>
@@ -584,7 +584,7 @@ Do not repeat yourself, use `${ant.project.name}` as can be seen in [Example 15 
 
 When you run your FlexUnit tests on CI machine and any test fails, your build ends. But it ends before the report generation, so your statistics can't be updated and you don't know which test fails and why. Therefore flexunit task offers `failureproperty`:
 
-```
+```xml
 ...
 <target name="test">
 	<mxmlc file="${basedir}/src/tests.mxml" output="${TESTS.dir}/tests.swf" failonerror="true" verbose-stacktraces="true">
